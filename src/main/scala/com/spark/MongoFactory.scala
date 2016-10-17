@@ -11,10 +11,14 @@ import com.stratio.datasource.mongodb.config.MongodbConfigBuilder
 object MongoFactory {
   private val SERVER = "localhost"
   private val PORT = 27017
-  private val DATABASE = "sffood"
-  private val COLLECTION = "foodinspection"
+  private val DATABASE = "sfFood"
+  private val ALL_COLLECTION = "allFoodInspection"
+  private val FILTER_COLLECTION = "filterFoodInspection"
 
-  val saveConfig = MongodbConfigBuilder(Map(Host -> List(SERVER),
-    Database -> DATABASE, Collection -> COLLECTION, SamplingRatio -> 1.0, WriteConcern -> "normal", SplitSize -> 8, SplitKey -> "_id"))
+  val saveAllConfig = MongodbConfigBuilder(Map(Host -> List(SERVER),
+    Database -> DATABASE, Collection -> ALL_COLLECTION, SamplingRatio -> 1.0, WriteConcern -> "normal", SplitSize -> 8, SplitKey -> "_id"))
+
+  val saveFilterConfig = MongodbConfigBuilder(Map(Host -> List(SERVER),
+    Database -> DATABASE, Collection -> FILTER_COLLECTION, SamplingRatio -> 1.0, WriteConcern -> "normal", SplitSize -> 8, SplitKey -> "_id"))
 
 }
